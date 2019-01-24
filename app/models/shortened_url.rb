@@ -30,6 +30,11 @@ class ShortenedUrl < ApplicationRecord
         through: :visits,
         source: :visitor
 
+    has_many :unique_visitors,
+        Proc.new { distinct },
+        through: :visits,
+        source: :visitor
+
     def self.shortened(url, user_id)
         ShortenedUrl.create!(short_url: random_code,
                              long_url: url,
@@ -48,16 +53,12 @@ class ShortenedUrl < ApplicationRecord
         visits.count
     end
 
-    def uniq_visitors
-        visits.distinct(:user_id)
-    end
-
     def num_uniqs
-        uniq_visitors.count
+        unique_visitors.count
     end
 
     def num_recent_uniques
         window = 10.minutes.ago
-        uniq_visitors.where("created_at >= '#{window}'").count
+        unique_visitors.where("created_at >= '#{window}'").count
     end
 end
