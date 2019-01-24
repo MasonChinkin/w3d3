@@ -8,7 +8,11 @@
 
 User.destroy_all
 ShortenedUrl.destroy_all
+Visit.destroy_all
 10.times do |i|
     u = User.create(email: "something#{i}@example.com")
-    ShortenedUrl.shortened("google#{i}.com", u.id)
+    s = ShortenedUrl.shortened("google#{i}.com", u.id)
+    (rand(5) + 1).times do
+        Visit.create(user_id: u.id, shortened_url_id: s.id)
+    end
 end
