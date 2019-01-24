@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+ShortenedUrl.destroy_all
+10.times do |i|
+    u = User.create(email: "something#{i}@example.com")
+    ShortenedUrl.shortened("google#{i}.com", u.id)
+end

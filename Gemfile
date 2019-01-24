@@ -58,3 +58,6 @@ gem "pry-rails", "~> 0.3.9"
 
 # Added at 2019-01-23 14:50:46 -0800 by appacademy:
 gem "better_errors", "~> 2.5"
+
+# Added at 2019-01-23 15:00:00 -0800 by appacademy:
+gem "annotate", "~> 2.7"

@@ -40,6 +40,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    annotate (2.7.4)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 13.0)
     arel (8.0.0)
     better_errors (2.5.0)
       coderay (>= 1.0.0)
@@ -185,6 +188,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate (~> 2.7)
   better_errors (~> 2.5)
   byebug
   capybara (~> 2.13)
